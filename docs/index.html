@@ -77,9 +77,24 @@
         margin-top: 5%;
         margin-bottom: 5%;
       }
-      button {
+      /* button {
         margin-bottom: 5px;
         border-radius: 5px;
+      } */
+      button {
+        margin: 5px;
+        border-radius: 5px;
+        width: 80%;
+
+        background-color: white;
+        color: black;
+        border: 2px solid blueviolet;
+        cursor: pointer;
+        min-height: 50px;
+      }
+      button:hover {
+        color: blueviolet;
+        font-weight: bold;
       }
       .selected-button {
         background-color: yellow;
@@ -137,4 +152,4 @@
         #screen-text {
           display: inline;
         }
-      }</style><script defer="defer" src="main.bundle.js"></script></head><body><div id="map"><div id="foo"></div><div id="headerblock"><div class="box-overlay"><div style="text-align: center; margin-bottom: 10px"><h1>Regional Rail</h1><hr><img id="legend-img" src="img/logo.png" alt="Legend"><hr><button id="button-to-select-tazs">Select TAZs for flow analysis</button> <button id="button-to-clear-tazs" style="display: none">Clear selected TAZs</button> <button id="button-to-analyze-tazs" style="display: none">Show trip destinations from selected TAZs</button></div></div></div></div></body></html>
+      }</style><script defer="defer" src="main.bundle.js"></script></head><body><div id="map"><div id="foo"></div><div id="headerblock"><div class="box-overlay"><div style="text-align: center; margin-bottom: 10px"><h1>Regional Rail</h1><hr><img id="legend-img" src="img/logo.png" alt="Legend"><hr><button id="button-to-select-tazs">Select a group of TAZs as a regional destination</button> <input name="destination-name" id="input-zone-name" style="display: none" placeholder="Name your TAZ group..."> <button id="button-to-clear-tazs" style="display: none">Clear selected TAZs</button> <button id="button-to-save-tazs" style="display: none">Save selected TAZs to database</button></div></div></div></div></body></html>
