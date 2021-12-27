@@ -6,10 +6,10 @@ const data_sources = {
     url: "https://www.tiles.dvrpc.org/data/taz-2010.json",
     minzoom: 8,
   },
-  "destination-geojson": {
-    type: "geojson",
-    data: API_ROOT + "/flows/?q=-1",
-  },
+  // "destination-geojson": {
+  //   type: "geojson",
+  //   data: API_ROOT + "/flows/?q=-1",
+  // },
   //   "indego-query": {
   //     type: "geojson",
   //     data: urlRoot + "indego/trip-points/?q=3004",

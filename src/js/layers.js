@@ -1,24 +1,24 @@
 const map_layers = {
-  destinations: {
-    id: "destinations",
-    type: "fill",
-    source: "destination-geojson",
-    layout: {},
-    paint: {
-      "fill-opacity": 0.7,
-      "fill-color": {
-        property: "trip_density",
-        default: "white",
-        stops: [
-          [0, "#edf8fb"],
-          [0.0000000003, "#b3cde3"],
-          [0.000000003, "#8c96c6"],
-          [0.0000003003, "#88419d"],
-          [0.00001, "black"],
-        ],
-      },
-    },
-  },
+  // destinations: {
+  //   id: "destinations",
+  //   type: "fill",
+  //   source: "destination-geojson",
+  //   layout: {},
+  //   paint: {
+  //     "fill-opacity": 0.7,
+  //     "fill-color": {
+  //       property: "trip_density",
+  //       default: "white",
+  //       stops: [
+  //         [0, "#edf8fb"],
+  //         [0.0000000003, "#b3cde3"],
+  //         [0.000000003, "#8c96c6"],
+  //         [0.0000003003, "#88419d"],
+  //         [0.00001, "black"],
+  //       ],
+  //     },
+  //   },
+  // },
 
   "taz-fill": {
     id: "taz-fill",
@@ -45,14 +45,26 @@ const map_layers = {
   },
   "selected-taz": {
     id: "selected-taz",
+    type: "fill",
+    source: "taz-tiles",
+    "source-layer": "TAZ_2010",
+    layout: {},
+    paint: {
+      "fill-opacity": 0.5,
+      "fill-color": "yellow",
+    },
+    filter: ["==", "tazt", "-1"],
+  },
+  "selected-taz-outline": {
+    id: "selected-taz-outline",
     type: "line",
     source: "taz-tiles",
     "source-layer": "TAZ_2010",
     layout: {},
     paint: {
       "line-opacity": 0.8,
-      "line-width": 2,
       "line-color": "black",
+      "line-width": 2,
     },
     filter: ["==", "tazt", "-1"],
   },
