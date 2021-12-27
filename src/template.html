@@ -94,9 +94,24 @@
         margin-top: 5%;
         margin-bottom: 5%;
       }
-      button {
+      /* button {
         margin-bottom: 5px;
         border-radius: 5px;
+      } */
+      button {
+        margin: 5px;
+        border-radius: 5px;
+        width: 80%;
+
+        background-color: white;
+        color: black;
+        border: 2px solid blueviolet;
+        cursor: pointer;
+        min-height: 50px;
+      }
+      button:hover {
+        color: blueviolet;
+        font-weight: bold;
       }
       .selected-button {
         background-color: yellow;
@@ -171,13 +186,20 @@
             <img id="legend-img" src="img/logo.png" alt="Legend" />
             <hr />
             <button id="button-to-select-tazs">
-              Select TAZs for flow analysis
+              Select a group of TAZs as a regional destination
             </button>
+            <input
+              type="text"
+              name="destination-name"
+              id="input-zone-name"
+              style="display: none"
+              placeholder="Name your TAZ group..."
+            />
             <button id="button-to-clear-tazs" style="display: none">
               Clear selected TAZs
             </button>
-            <button id="button-to-analyze-tazs" style="display: none">
-              Show trip destinations from selected TAZs
+            <button id="button-to-save-tazs" style="display: none">
+              Save selected TAZs to database
             </button>
           </div>
         </div>
