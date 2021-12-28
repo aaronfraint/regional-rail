@@ -1,4 +1,4 @@
-import { API_ROOT } from "./api";
+import { API_ROOT, URL_FOR_ZONE_GEOMS } from "./api";
 
 const data_sources = {
   "taz-tiles": {
@@ -6,10 +6,10 @@ const data_sources = {
     url: "https://www.tiles.dvrpc.org/data/taz-2010.json",
     minzoom: 8,
   },
-  // "destination-geojson": {
-  //   type: "geojson",
-  //   data: API_ROOT + "/flows/?q=-1",
-  // },
+  "zones-geojson": {
+    type: "geojson",
+    data: URL_FOR_ZONE_GEOMS,
+  },
   //   "indego-query": {
   //     type: "geojson",
   //     data: urlRoot + "indego/trip-points/?q=3004",

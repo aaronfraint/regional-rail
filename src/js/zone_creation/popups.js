@@ -1,6 +1,6 @@
 const make_popup = () =>
   new mapboxgl.Popup({
-    closebutton: false,
+    closeButton: false,
     className: "i-am-a-popup",
   });
 

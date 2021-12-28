@@ -1,25 +1,4 @@
 const map_layers = {
-  // destinations: {
-  //   id: "destinations",
-  //   type: "fill",
-  //   source: "destination-geojson",
-  //   layout: {},
-  //   paint: {
-  //     "fill-opacity": 0.7,
-  //     "fill-color": {
-  //       property: "trip_density",
-  //       default: "white",
-  //       stops: [
-  //         [0, "#edf8fb"],
-  //         [0.0000000003, "#b3cde3"],
-  //         [0.000000003, "#8c96c6"],
-  //         [0.0000003003, "#88419d"],
-  //         [0.00001, "black"],
-  //       ],
-  //     },
-  //   },
-  // },
-
   "taz-fill": {
     id: "taz-fill",
     type: "fill",
@@ -68,15 +47,36 @@ const map_layers = {
     },
     filter: ["==", "tazt", "-1"],
   },
+  "zones-fill": {
+    id: "zones-fill",
+    type: "fill",
+    source: "zones-geojson",
+    layout: {},
+    paint: {
+      "fill-opacity": 0.1,
+      "fill-color": "red",
+    },
+  },
+  zones: {
+    id: "zones",
+    type: "line",
+    source: "zones-geojson",
+    layout: {},
+    paint: {
+      "line-opacity": 0.7,
+      "line-color": "red",
+      "line-width": 4,
+    },
+  },
   "rr-lines": {
     id: "rr-lines",
     type: "line",
     source: "rr-lines-src",
     layout: {},
     paint: {
-      "line-width": 4,
-      "line-opacity": 0.4,
-      "line-color": "blue",
+      "line-width": 2,
+      "line-opacity": 1,
+      "line-color": "black",
     },
   },
   "rr-stops": {
@@ -85,9 +85,9 @@ const map_layers = {
     source: "rr-stops-src",
     layout: {},
     paint: {
-      "circle-radius": 6,
+      "circle-radius": 4,
       "circle-opacity": 0.7,
-      "circle-color": "red",
+      "circle-color": "black",
     },
   },
 };
