@@ -1,4 +1,4 @@
-// import { add_popup_to_map, clear_popups } from "./popups";
+import { add_popup_to_map, clear_popups } from "./popups";
 // import { is_visible, div_save_zone } from "./dom";
 
 // const use_pointer_when_hovering = (map, layername) => {
@@ -15,28 +15,22 @@
 //   });
 // };
 
-// const add_popup_to_zones = (map) => {
-//   map.on("mousemove", "zones-fill", (e) => {
-//     clear_popups();
-//     let msg = "<h3>" + e.features[0].properties.zone_name + "</h3>";
-//     add_popup_to_map(map, msg, e);
-//   });
-//   map.on("mouseleave", "zones-fill", () => {
-//     clear_popups();
-//   });
-// };
+const add_popup_to_tazs = (map) => {
+  map.on("mousemove", "taz-fill", (e) => {
+    clear_popups();
+    let msg =
+      "<p>" +
+      e.features[0].properties.total_trips +
+      " began here and ended in the destination zone</p>";
+    add_popup_to_map(map, msg, e);
+  });
+  map.on("mouseleave", "taz-fill", () => {
+    clear_popups();
+  });
+};
 
-// const wire_mouse_hover = (map) => {
-//   /**
-//    * Show interactivity tooltip hints for all layers defined within
-//    *
-//    * @param {mapboxgl.Map} map - The map object for the page
-//    */
-//   var layers = ["taz-fill"];
+const wire_mouse_hover = (map) => {
+  add_popup_to_tazs(map);
+};
 
-//   layers.forEach((lyr) => use_pointer_when_hovering(map, lyr));
-
-//   add_popup_to_zones(map);
-// };
-
-// export { wire_mouse_hover };
+export { wire_mouse_hover };

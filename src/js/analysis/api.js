@@ -22,7 +22,7 @@ const API_ROOT = generate_api_root();
 
 const URL_FOR_ZONE_GEOMS = API_ROOT + "/zone-geoms";
 const URL_FOR_ZONE_NAMES = API_ROOT + "/zone-names";
-const URL_FOR_NEW_ZONE = API_ROOT + "/new-taz-group";
+const URL_FOR_FLOWS = API_ROOT + "/flows";
 
 const refresh_zone_geojson = (map) => {
   // get a new copy of the ZONE GROUP geojson layer
@@ -113,6 +113,7 @@ const add_zone_definition_to_database = async function (map, data) {
 export {
   API_ROOT,
   URL_FOR_ZONE_GEOMS,
+  URL_FOR_FLOWS,
   refresh_zone_geojson,
   add_zone_definition_to_database,
 };
