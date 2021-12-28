@@ -11,7 +11,9 @@ module.exports = {
   mode: "development",
 
   entry: {
+    index: path.resolve(__dirname, "./src/index.js"),
     zone_creation: path.resolve(__dirname, "./src/index_zone_creation.js"),
+    analysis: path.resolve(__dirname, "./src/index_analysis.js"),
   },
 
   output: {
@@ -21,10 +23,22 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: "testing 213123123123",
+      title: "Zone Creation",
       template: path.resolve(__dirname, "./src/template.html"),
-      filename: "index.html",
+      filename: "create_zone.html",
       chunks: ["zone_creation"],
+    }),
+    new HtmlWebpackPlugin({
+      title: "Analysis",
+      template: path.resolve(__dirname, "./src/template_analysis.html"),
+      filename: "analysis.html",
+      chunks: ["analysis"],
+    }),
+    new HtmlWebpackPlugin({
+      title: "Home",
+      template: path.resolve(__dirname, "./src/template_index.html"),
+      filename: "index.html",
+      chunks: ["index"],
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),

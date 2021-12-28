@@ -7,26 +7,12 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-let indexConfig = new HtmlWebpackPlugin({
-  title: "Regional Rail",
-  template: path.resolve(__dirname, "./src/template.html"),
-  filename: "index.html",
-  chunks: ["zone_creation"],
-  minify: {
-    collapseWhitespace: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: false,
-    removeStyleLinkTypeAttributes: false,
-    useShortDoctype: true,
-  },
-});
-
 module.exports = {
   mode: "production",
 
   entry: {
     zone_creation: path.resolve(__dirname, "./src/index_zone_creation.js"),
+    analysis: path.resolve(__dirname, "./src/index_analysis.js"),
   },
 
   output: {
@@ -46,7 +32,34 @@ module.exports = {
         },
       ],
     }),
-    indexConfig,
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template.html"),
+      filename: "index.html",
+      chunks: ["zone_creation"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template_analysis.html"),
+      filename: "analysis.html",
+      chunks: ["analysis"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
   ],
 
   module: {
