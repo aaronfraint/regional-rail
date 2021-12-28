@@ -11,6 +11,7 @@ module.exports = {
   mode: "production",
 
   entry: {
+    index: path.resolve(__dirname, "./src/index.js"),
     zone_creation: path.resolve(__dirname, "./src/index_zone_creation.js"),
     analysis: path.resolve(__dirname, "./src/index_analysis.js"),
   },
@@ -34,8 +35,22 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: "Regional Rail",
-      template: path.resolve(__dirname, "./src/template.html"),
+      template: path.resolve(__dirname, "./src/template_index.html"),
       filename: "index.html",
+      chunks: ["index"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template.html"),
+      filename: "create_zone.html",
       chunks: ["zone_creation"],
       minify: {
         collapseWhitespace: true,
