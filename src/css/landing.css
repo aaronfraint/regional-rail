@@ -1,0 +1,30 @@
+body {
+  margin: 20px;
+  padding: 0;
+  font: 12px/20px Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+}
+button {
+  margin: 5px;
+  border-radius: 5px;
+  width: 50%;
+  background-color: white;
+  color: black;
+  border: 2px solid blueviolet;
+  cursor: pointer;
+  min-height: 50px;
+}
+button:hover {
+  color: blueviolet;
+  font-weight: bold;
+}
+p {
+  text-align: center;
+}
+hr {
+  border-top: 2px dashed blueviolet;
+  border-bottom: none;
+}

@@ -1,4 +1,4 @@
-import "./css/main.css";
+import "./css/zone_creation.css";
 
 import { data_sources } from "./js/zone_creation/sources";
 import { makeMap } from "./js/zone_creation/map";
