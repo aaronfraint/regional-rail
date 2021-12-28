@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Regional Rail</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+  </head>
+
+  <body>
+    <div id="map">
+      <div id="spinner"></div>
+      <div id="headerblock">
+        <div class="box-overlay">
+          <div style="margin-bottom: 10px">
+            <h1>Regional Rail</h1>
+            <h2 id="zone-name">Flow Analysis</h2>
+            <hr />
+            <div id="get-started">
+              <p>
+                This map shows the origin TAZs of trips that ended within this
+                destination zone.
+              </p>
+              <hr />
+              <div class="centered">
+                <button id="button-to-select-another-destination">
+                  Select a different destination
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="logoblock">
+        <img id="legend-img" src="img/logo.png" alt="Legend" />
+      </div>
+    </div>
+  </body>
+</html>
