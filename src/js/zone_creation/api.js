@@ -9,9 +9,22 @@ import {
   turn_off,
 } from "./dom";
 
-const API_ROOT =
-  // "https://regional-model-api-aemlm.ondigitalocean.app/api/regional-model";
-  "http://localhost:8000/api/regional-model";
+const generate_api_root = () => {
+  var current_env = process.env.NODE_ENV;
+
+  let production_api =
+    "https://regional-model-api-aemlm.ondigitalocean.app/api/regional-model";
+  let local_api = "http://localhost:8000/api/regional-model";
+
+  if (current_env == "development") {
+    var url = local_api;
+  } else {
+    var url = production_api;
+  }
+  return url;
+};
+
+const API_ROOT = generate_api_root();
 
 const URL_FOR_ZONE_GEOMS = API_ROOT + "/zone-geoms";
 const URL_FOR_ZONE_NAMES = API_ROOT + "/zone-names";
