@@ -18,6 +18,9 @@ const button_logic = (map) => {
   button_to_select_tazs.onclick = () => {
     turn_on(div_save_zone);
     turn_off(div_get_started);
+
+    zone_name_input.value = "";
+    zone_name_input.focus();
   };
 
   // button to clear out the selection
@@ -59,6 +62,14 @@ const layer_logic = (map) => {
 
       filter_selected_tazs(map);
     }
+  });
+
+  map.on("click", "zones-fill", function (e) {
+    let props = e.features[0].properties;
+    console.log(props);
+
+    let url = "./analysis.html?zone_name=" + props.zone_name;
+    window.location = url;
   });
 };
 
