@@ -11,6 +11,7 @@ let indexConfig = new HtmlWebpackPlugin({
   title: "Regional Rail",
   template: path.resolve(__dirname, "./src/template.html"),
   filename: "index.html",
+  chunks: ["zone_creation"],
   minify: {
     collapseWhitespace: true,
     removeComments: true,
@@ -25,7 +26,7 @@ module.exports = {
   mode: "production",
 
   entry: {
-    main: path.resolve(__dirname, "./src/js/index.js"),
+    zone_creation: path.resolve(__dirname, "./src/index_zone_creation.js"),
   },
 
   output: {

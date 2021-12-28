@@ -11,7 +11,7 @@ module.exports = {
   mode: "development",
 
   entry: {
-    main: path.resolve(__dirname, "./src/js/index.js"),
+    zone_creation: path.resolve(__dirname, "./src/index_zone_creation.js"),
   },
 
   output: {
@@ -24,6 +24,7 @@ module.exports = {
       title: "testing 213123123123",
       template: path.resolve(__dirname, "./src/template.html"),
       filename: "index.html",
+      chunks: ["zone_creation"],
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
