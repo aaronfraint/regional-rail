@@ -1,13 +1,13 @@
 import "./css/analysis.css";
 
 import { data_sources } from "./js/analysis/sources";
-import { makeMap } from "./js/analysis/map";
+import { makeMap } from "./js/common/map";
 import { map_layers } from "./js/analysis/layers";
 import { wire_mouse_hover } from "./js/analysis/hover";
 import { wire_mouse_click } from "./js/analysis/click";
-import { URL_FOR_FLOWS } from "./js/analysis/api";
+import { URL_FOR_FLOWS } from "./js/common/api_urls";
 
-import { make_spinner } from "./js/analysis/spinner";
+import { make_spinner } from "./js/common/spinner";
 
 const map = makeMap();
 

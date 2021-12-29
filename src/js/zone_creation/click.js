@@ -8,10 +8,8 @@ import {
   zone_name_input,
   div_get_started,
   div_save_zone,
-  is_visible,
-  turn_on,
-  turn_off,
 } from "./dom";
+import { is_visible, turn_off, turn_on } from "../common/helpers";
 
 const button_logic = (map) => {
   // button to start the selection process

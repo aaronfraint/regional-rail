@@ -1,5 +1,6 @@
-import { add_popup_to_map, clear_popups } from "./popups";
-import { is_visible, div_save_zone } from "./dom";
+import { add_popup_to_map, clear_popups } from "../common/popups";
+import { div_save_zone } from "./dom";
+import { is_visible, turn_off, turn_on } from "../common/helpers";
 
 const use_pointer_when_hovering = (map, layername) => {
   // change mouse tip to pointer finger

@@ -1,4 +1,8 @@
-import { API_ROOT, URL_FOR_ZONE_GEOMS, URL_FOR_FLOWS } from "./api";
+import {
+  API_ROOT,
+  URL_FOR_ZONE_GEOMS,
+  URL_FOR_FLOWS,
+} from "../common/api_urls";
 
 const data_sources = {
   "zones-geojson": {

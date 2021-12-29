@@ -1,7 +1,7 @@
 import "./css/zone_creation.css";
 
 import { data_sources } from "./js/zone_creation/sources";
-import { makeMap } from "./js/zone_creation/map";
+import { makeMap } from "./js/common/map";
 import { map_layers } from "./js/zone_creation/layers";
 import { wire_mouse_hover } from "./js/zone_creation/hover";
 import { wire_mouse_click } from "./js/zone_creation/click";

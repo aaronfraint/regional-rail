@@ -1,28 +1,7 @@
-import { make_spinner } from "./spinner";
+import { make_spinner } from "../common/spinner";
 import { filter_selected_tazs } from "./filters";
 import { reset_taz_selection } from "./constants";
-import { turn_on, turn_off } from "./dom";
-
-const generate_api_root = () => {
-  var current_env = process.env.NODE_ENV;
-
-  let production_api =
-    "https://regional-model-api-aemlm.ondigitalocean.app/api/regional-model";
-  let local_api = "http://localhost:8000/api/regional-model";
-
-  if (current_env == "development") {
-    var url = local_api;
-  } else {
-    var url = production_api;
-  }
-  return url;
-};
-
-const API_ROOT = generate_api_root();
-
-const URL_FOR_ZONE_GEOMS = API_ROOT + "/zone-geoms";
-const URL_FOR_ZONE_NAMES = API_ROOT + "/zone-names";
-const URL_FOR_FLOWS = API_ROOT + "/flows";
+import { turn_on, turn_off } from "../common/helpers";
 
 const refresh_zone_geojson = (map) => {
   // get a new copy of the ZONE GROUP geojson layer
@@ -110,10 +89,4 @@ const add_zone_definition_to_database = async function (map, data) {
   }
 };
 
-export {
-  API_ROOT,
-  URL_FOR_ZONE_GEOMS,
-  URL_FOR_FLOWS,
-  refresh_zone_geojson,
-  add_zone_definition_to_database,
-};
+export { refresh_zone_geojson, add_zone_definition_to_database };

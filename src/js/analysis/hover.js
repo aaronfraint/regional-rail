@@ -1,19 +1,4 @@
-import { add_popup_to_map, clear_popups } from "./popups";
-// import { is_visible, div_save_zone } from "./dom";
-
-// const use_pointer_when_hovering = (map, layername) => {
-//   // change mouse tip to pointer finger
-//   map.on("mouseenter", layername, () => {
-//     if (is_visible(div_save_zone)) {
-//       map.getCanvas().style.cursor = "pointer";
-//     }
-//   });
-
-//   // change mouse tip upon leaving feature
-//   map.on("mouseleave", layername, function (e) {
-//     map.getCanvas().style.cursor = "";
-//   });
-// };
+import { add_popup_to_map, clear_popups } from "../common/popups";
 
 const add_popup_to_tazs = (map) => {
   map.on("mousemove", "taz-fill", (e) => {
