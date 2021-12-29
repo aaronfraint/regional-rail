@@ -1,34 +1,4 @@
 const map_layers = {
-  "taz-fill": {
-    id: "taz-fill",
-    type: "fill",
-    source: "taz-geojson",
-    layout: {},
-    paint: {
-      "fill-opacity": 0.8,
-      "fill-color": {
-        property: "trip_density",
-        default: "white",
-        stops: [
-          [0, "#edf8fb"],
-          [0.0000000003, "#b3cde3"],
-          [0.000000003, "#8c96c6"],
-          [0.0000003003, "#88419d"],
-          [0.00001, "black"],
-        ],
-      },
-    },
-  },
-  "taz-line": {
-    id: "taz-line",
-    type: "line",
-    source: "taz-geojson",
-    layout: {},
-    paint: {
-      "line-opacity": 1,
-      "line-color": "black",
-    },
-  },
   "zones-fill": {
     id: "zones-fill",
     type: "fill",
