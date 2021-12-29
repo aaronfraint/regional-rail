@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack.dev.js",
+    "start": "cd docs && http-server",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "http-server": "^14.0.0",
     "spin.js": "^4.1.1"
   }
 }
