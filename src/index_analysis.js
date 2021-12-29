@@ -5,9 +5,10 @@ import { makeMap } from "./js/common/map";
 import { map_layers } from "./js/analysis/layers";
 import { wire_mouse_hover } from "./js/analysis/hover";
 import { wire_mouse_click } from "./js/analysis/click";
-import { URL_FOR_FLOWS } from "./js/common/api_urls";
-
+import { load_taz_source } from "./js/analysis/api";
 import { make_spinner } from "./js/common/spinner";
+
+const spinner = make_spinner();
 
 const map = makeMap();
 
@@ -28,7 +29,7 @@ const get_query_params = () => {
   }
 };
 
-map.on("load", function () {
+map.on("load", async function () {
   let params = get_query_params();
   console.log(params);
 
@@ -39,13 +40,6 @@ map.on("load", function () {
 
   for (const src in data_sources) map.addSource(src, data_sources[src]);
 
-  let spinner = make_spinner();
-  map.addSource("taz-geojson", {
-    type: "geojson",
-    data: URL_FOR_FLOWS + "/?dest_name=" + nice_name,
-  });
-  spinner.stop();
-
   for (const lyr in map_layers) map.addLayer(map_layers[lyr]);
 
   wire_mouse_hover(map);
@@ -54,4 +48,10 @@ map.on("load", function () {
 
   map.setFilter("zones", ["==", "zone_name", decodeURI(params.zone_name)]);
   map.setFilter("zones-fill", ["==", "zone_name", decodeURI(params.zone_name)]);
+
+  load_taz_source(map, nice_name);
+});
+
+map.on("idle", () => {
+  spinner.stop();
 });

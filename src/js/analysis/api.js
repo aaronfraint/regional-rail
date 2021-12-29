@@ -1,92 +1,49 @@
-import { make_spinner } from "../common/spinner";
-import { filter_selected_tazs } from "./filters";
-import { reset_taz_selection } from "./constants";
-import { turn_on, turn_off } from "../common/helpers";
+import { URL_FOR_FLOWS } from "../common/api_urls";
 
-const refresh_zone_geojson = (map) => {
-  // get a new copy of the ZONE GROUP geojson layer
+const load_taz_source = async (map, nice_name) => {
+  console.log("here");
+  await map.addSource("taz-geojson", {
+    type: "geojson",
+    data: URL_FOR_FLOWS + "/?dest_name=" + nice_name,
+  });
 
-  let spinner = make_spinner();
-
-  fetch(URL_FOR_ZONE_GEOMS, {
-    method: "GET",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      map.getSource("zones-geojson").setData(data);
-      spinner.stop();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-};
-
-async function this_zone_name_exists(zone_name) {
-  // get a list of all zone names
-
-  let does_it_exist = false;
-
-  await fetch(URL_FOR_ZONE_NAMES, {
-    method: "GET",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((item) => {
-        if (item.zone_name == zone_name) {
-          does_it_exist = true;
-        }
-      });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-  return does_it_exist;
-}
-
-const add_zone_definition_to_database = async function (map, data) {
-  let it_exists = await this_zone_name_exists(data.zone_name);
-
-  if (it_exists) {
-    alert(
-      "The zone name '" +
-        data.zone_name +
-        "' already exists, please use a different one!"
-    );
-    zone_name_input.value = "";
-    zone_name_input.focus();
-  } else {
-    let spinner = make_spinner();
-
-    fetch(URL_FOR_NEW_ZONE, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+  map.addLayer(
+    {
+      id: "taz-fill",
+      type: "fill",
+      source: "taz-geojson",
+      layout: {},
+      paint: {
+        "fill-opacity": 0.8,
+        "fill-color": {
+          property: "trip_density",
+          default: "white",
+          stops: [
+            [0, "#edf8fb"],
+            [0.0000000003, "#b3cde3"],
+            [0.000000003, "#8c96c6"],
+            [0.0000003003, "#88419d"],
+            [0.00001, "black"],
+          ],
+        },
       },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        spinner.stop();
-        refresh_zone_geojson(map);
-
-        reset_taz_selection();
-        filter_selected_tazs(map);
-
-        turn_off(div_save_zone);
-        turn_on(div_get_started);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
+    },
+    "zones-fill"
+  );
+  map.addLayer(
+    {
+      id: "taz-line",
+      type: "line",
+      source: "taz-geojson",
+      layout: {},
+      paint: {
+        "line-opacity": 1,
+        "line-color": "white",
+        "line-width": 0.5,
+      },
+    },
+    "zones-fill"
+  );
 };
 
-export { refresh_zone_geojson, add_zone_definition_to_database };
+export { load_taz_source };
