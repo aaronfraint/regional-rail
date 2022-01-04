@@ -17,7 +17,7 @@ const API_ROOT = generate_api_root();
 
 const URL_FOR_ZONE_GEOMS = API_ROOT + "/zone-geoms";
 const URL_FOR_ZONE_NAMES = API_ROOT + "/zone-names";
-const URL_FOR_NEW_ZONE = API_ROOT + "/new-taz-group";
+const URL_FOR_NEW_ZONE = API_ROOT + "/new-taz-group/";
 const URL_FOR_FLOWS = API_ROOT + "/flows";
 
 export {
