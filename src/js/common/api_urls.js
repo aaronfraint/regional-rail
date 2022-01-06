@@ -2,7 +2,7 @@ const generate_api_root = () => {
   var current_env = process.env.NODE_ENV;
 
   let production_api =
-    "https://regional-model-api-aemlm.ondigitalocean.app/api/regional-model";
+    "https://regional-rail-api.planninglab.org/api/regional-model";
   let local_api = "http://localhost:8000/api/regional-model";
 
   if (current_env == "development") {
