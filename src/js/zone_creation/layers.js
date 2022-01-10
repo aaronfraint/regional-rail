@@ -56,6 +56,7 @@ const map_layers = {
       "fill-opacity": 0.1,
       "fill-color": "red",
     },
+    filter: ["==", "zone_name", "none"],
   },
   zones: {
     id: "zones",
@@ -67,6 +68,7 @@ const map_layers = {
       "line-color": "red",
       "line-width": 4,
     },
+    filter: ["==", "zone_name", "none"],
   },
   "rr-lines": {
     id: "rr-lines",
