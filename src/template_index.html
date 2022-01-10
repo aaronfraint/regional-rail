@@ -15,25 +15,18 @@
   </head>
 
   <body>
-    <h1>Regional Rail Fare Equity Analysis</h1>
-    <hr />
-    <p>
-      Click the button below to select a group of TAZs and define a new
-      destination zone
-    </p>
-    <div class="centered">
-      <button id="link-to-new-zone">Define a new zone</button>
+    <div id="map">
+      <div id="header">
+        <h1>Regional Rail Equity Analysis</h1>
+        <img id="logo-img" src="img/logo_white.png" alt="Legend" />
+      </div>
     </div>
-    <hr />
-    <p>
-      To analyze an existing zone, select one from the dropdown list and then
-      click the button below.
-    </p>
-    <div class="centered">
-      <select name="zone-name" id="zone-name"></select>
-    </div>
-    <div class="centered">
-      <button id="link-to-analysis">Analyze an existing zone</button>
+    <div id="content">
+      <div class="action">
+        <button class="link-to-all-zones">See all zones</button>
+        <button id="link-to-new-zone">Create a new zone</button>
+        <button class="link-to-all-zones">Analyze an existing zone</button>
+      </div>
     </div>
   </body>
 </html>

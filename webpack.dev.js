@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Zone Creation",
-      template: path.resolve(__dirname, "./src/template.html"),
+      template: path.resolve(__dirname, "./src/template_create_zone.html"),
       filename: "create_zone.html",
       chunks: ["zone_creation"],
     }),

@@ -49,7 +49,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: "Regional Rail",
-      template: path.resolve(__dirname, "./src/template.html"),
+      template: path.resolve(__dirname, "./src/template_create_zone.html"),
       filename: "create_zone.html",
       chunks: ["zone_creation"],
       minify: {
