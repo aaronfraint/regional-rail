@@ -16,12 +16,17 @@
 
   <body>
     <div id="map">
+      <div id="header">
+        <h1>
+          <a href="./">Regional Rail Equity: Flow Analysis</a>
+        </h1>
+        <img id="logo-img" src="img/logo_white.png" alt="Legend" />
+      </div>
       <div id="spinner"></div>
-      <div id="headerblock">
+      <div id="floater">
         <div class="box-overlay">
           <div style="margin-bottom: 10px">
-            <h1>Regional Rail</h1>
-            <h2 id="zone-name">Flow Analysis</h2>
+            <h2 id="zone-name"></h2>
             <hr />
             <div id="get-started">
               <p>
@@ -31,16 +36,13 @@
               <hr />
               <div class="centered">
                 <button id="button-to-select-another-destination">
-                  Select a different destination
+                  Select a different zone
                 </button>
+                <button id="button-to-make-zone">Create a new zone</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div id="logoblock">
-        <img id="legend-img" src="img/logo.png" alt="Legend" />
       </div>
     </div>
   </body>
