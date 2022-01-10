@@ -8,7 +8,7 @@ document.getElementById("link-to-new-zone").onclick = () => {
 Array.from(document.getElementsByClassName("link-to-all-zones")).forEach(
   (el) => {
     el.onclick = () => {
-      window.location = "./analysis.html";
+      window.location = "./zones.html";
     };
   }
 );
