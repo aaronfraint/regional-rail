@@ -18,6 +18,10 @@ body {
 h1 {
   margin-left: 10px;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
 #logo-img {
   max-height: 80%;
   margin: 4px 10px 4px 4px;
