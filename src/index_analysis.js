@@ -1,3 +1,9 @@
+import "./css/header.css";
+import "./css/boxoverlay.css";
+import "./css/spinner.css";
+import "./css/buttons.css";
+// import "./css/minibutton.css";
+
 import "./css/analysis.css";
 
 import { data_sources } from "./js/analysis/sources";
@@ -35,8 +41,7 @@ map.on("load", async function () {
 
   let nice_name = decodeURI(params.zone_name);
 
-  document.getElementById("zone-name").innerText =
-    "Flow Analysis: " + nice_name;
+  document.getElementById("zone-name").innerText = nice_name;
 
   for (const src in data_sources) map.addSource(src, data_sources[src]);
 
