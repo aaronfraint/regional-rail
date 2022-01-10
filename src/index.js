@@ -14,5 +14,5 @@ Array.from(document.getElementsByClassName("link-to-all-zones")).forEach(
 );
 const map = makeMap();
 map.on("load", function () {
-  console.log("hello world");
+  map.resize();
 });

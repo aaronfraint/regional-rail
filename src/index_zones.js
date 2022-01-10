@@ -16,4 +16,6 @@ map.on("load", function () {
 
   wire_mouse_hover(map);
   wire_mouse_click(map);
+
+  map.resize();
 });

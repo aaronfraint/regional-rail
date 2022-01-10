@@ -50,6 +50,8 @@ map.on("load", async function () {
   map.setFilter("zones-fill", ["==", "zone_name", decodeURI(params.zone_name)]);
 
   load_taz_source(map, nice_name);
+
+  map.resize();
 });
 
 map.on("idle", () => {
