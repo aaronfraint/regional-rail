@@ -12,7 +12,7 @@ import {
 
 import { is_visible, turn_off, turn_on } from "../common/helpers";
 
-const refresh_zone_geojson = (map) => {
+const refresh_zone_geojson = (map, new_zone_name) => {
   // get a new copy of the ZONE GROUP geojson layer
 
   let spinner = make_spinner();
@@ -26,6 +26,8 @@ const refresh_zone_geojson = (map) => {
     .then((response) => response.json())
     .then((data) => {
       map.getSource("zones-geojson").setData(data);
+      map.setFilter("zones", ["==", "zone_name", new_zone_name]);
+      map.setFilter("zones-fill", ["==", "zone_name", new_zone_name]);
       spinner.stop();
     })
     .catch((error) => {
@@ -60,12 +62,13 @@ async function this_zone_name_exists(zone_name) {
 }
 
 const add_zone_definition_to_database = async function (map, data) {
-  let it_exists = await this_zone_name_exists(data.zone_name);
+  let new_zone_name = data.zone_name;
+  let it_exists = await this_zone_name_exists(new_zone_name);
 
   if (it_exists) {
     alert(
       "The zone name '" +
-        data.zone_name +
+        new_zone_name +
         "' already exists, please use a different one!"
     );
     zone_name_input.value = "";
@@ -84,7 +87,7 @@ const add_zone_definition_to_database = async function (map, data) {
       .then((response) => response.json())
       .then((data) => {
         spinner.stop();
-        refresh_zone_geojson(map);
+        refresh_zone_geojson(map, new_zone_name);
 
         reset_taz_selection();
         filter_selected_tazs(map);
