@@ -44,7 +44,6 @@ button:hover {
   position: absolute;
   top: 0;
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   height: 5vh;
@@ -72,7 +71,4 @@ button:hover {
 #logo-img {
   max-height: 80%;
   margin: 4px 10px 4px 4px;
-}
-a {
-  text-align: right;
 }
