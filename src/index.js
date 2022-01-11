@@ -1,4 +1,7 @@
 import "./css/landing.css";
+import "./css/header.css";
+import "./css/boxoverlay.css";
+
 import { makeMap } from "./js/common/map";
 
 document.getElementById("link-to-new-zone").onclick = () => {
