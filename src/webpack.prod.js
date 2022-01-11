@@ -8,7 +8,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
 
   entry: {
     index: path.resolve(__dirname, "./src/index.js"),
@@ -18,37 +18,12 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, "./docs"),
+    path: path.resolve(__dirname, "./build"),
     filename: "[name].bundle.js",
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "Zone Creation",
-      template: path.resolve(__dirname, "./src/template_zones.html"),
-      filename: "zones.html",
-      chunks: ["zones"],
-    }),
-    new HtmlWebpackPlugin({
-      title: "Zone Creation",
-      template: path.resolve(__dirname, "./src/template_create_zone.html"),
-      filename: "create_zone.html",
-      chunks: ["zone_creation"],
-    }),
-    new HtmlWebpackPlugin({
-      title: "Analysis",
-      template: path.resolve(__dirname, "./src/template_analysis.html"),
-      filename: "analysis.html",
-      chunks: ["analysis"],
-    }),
-    new HtmlWebpackPlugin({
-      title: "Home",
-      template: path.resolve(__dirname, "./src/template_index.html"),
-      filename: "index.html",
-      chunks: ["index"],
-    }),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin({
       patterns: [
@@ -58,6 +33,62 @@ module.exports = {
           toType: "dir",
         },
       ],
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template_index.html"),
+      filename: "index.html",
+      chunks: ["index"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template_zones.html"),
+      filename: "zones.html",
+      chunks: ["zones"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template_create_zone.html"),
+      filename: "create_zone.html",
+      chunks: ["zone_creation"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      title: "Regional Rail",
+      template: path.resolve(__dirname, "./src/template_analysis.html"),
+      filename: "analysis.html",
+      chunks: ["analysis"],
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
+        useShortDoctype: true,
+      },
     }),
   ],
 
@@ -86,19 +117,8 @@ module.exports = {
       },
     ],
   },
-
-  devServer: {
-    historyApiFallback: true,
-    // contentBase: path.resolve(__dirname, "./docs"),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080,
-  },
-
-  resolve: {
-    fallback: {
-      fs: false,
-    },
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
 };
