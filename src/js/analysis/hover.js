@@ -5,8 +5,8 @@ const add_popup_to_tazs = (map) => {
     clear_popups();
     let msg =
       "<p>" +
-      e.features[0].properties.total_trips +
-      " began here and ended in the destination zone</p>";
+      Number.parseFloat(e.features[0].properties.total_trips).toFixed(4) +
+      " trips began here and ended in the destination zone</p>";
     add_popup_to_map(map, msg, e);
   });
   map.on("mouseleave", "taz-fill", () => {
