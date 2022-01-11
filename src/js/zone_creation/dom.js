@@ -1,3 +1,4 @@
+const button_to_select_zone = document.getElementById("button-to-select-zone");
 const button_to_select_tazs = document.getElementById("button-to-select-tazs");
 const button_to_clear_tazs = document.getElementById("button-to-clear-tazs");
 const button_to_save_tazs = document.getElementById("button-to-save-tazs");
@@ -6,6 +7,7 @@ const div_get_started = document.getElementById("get-started");
 const div_save_zone = document.getElementById("save-zone");
 
 export {
+  button_to_select_zone,
   button_to_select_tazs,
   button_to_clear_tazs,
   button_to_save_tazs,

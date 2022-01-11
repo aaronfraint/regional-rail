@@ -2,6 +2,7 @@ import { API_ROOT, add_zone_definition_to_database } from "./api";
 import { filter_selected_tazs } from "./filters";
 import { SELECTED_TAZS, reset_taz_selection } from "./constants";
 import {
+  button_to_select_zone,
   button_to_select_tazs,
   button_to_clear_tazs,
   button_to_save_tazs,
@@ -12,6 +13,10 @@ import {
 import { is_visible, turn_off, turn_on } from "../common/helpers";
 
 const button_logic = (map) => {
+  button_to_select_zone.onclick = () => {
+    window.location = "./zones.html";
+  };
+
   // button to start the selection process
   button_to_select_tazs.onclick = () => {
     turn_on(div_save_zone);

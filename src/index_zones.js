@@ -1,5 +1,6 @@
 import "./css/header.css";
 import "./css/boxoverlay.css";
+import "./css/buttons.css";
 // import "./css/zone_creation.css";
 
 import { makeMap } from "./js/common/map";

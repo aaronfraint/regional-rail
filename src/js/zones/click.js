@@ -10,6 +10,10 @@ const layer_logic = (map) => {
 
 const wire_mouse_click = (map) => {
   layer_logic(map);
+
+  document.getElementById("btn-new-zone").onclick = () => {
+    window.location = "./create_zone.html";
+  };
 };
 
 export { wire_mouse_click };
