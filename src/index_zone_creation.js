@@ -1,3 +1,7 @@
+import "./css/header.css";
+import "./css/boxoverlay.css";
+import "./css/spinner.css";
+import "./css/buttons.css";
 import "./css/zone_creation.css";
 
 import { data_sources } from "./js/zone_creation/sources";
