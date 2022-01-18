@@ -2,8 +2,6 @@ import "./css/header.css";
 import "./css/boxoverlay.css";
 import "./css/spinner.css";
 import "./css/buttons.css";
-// import "./css/minibutton.css";
-
 import "./css/analysis.css";
 
 import { data_sources } from "./js/analysis/sources";
@@ -11,7 +9,7 @@ import { makeMap } from "./js/common/map";
 import { map_layers } from "./js/analysis/layers";
 import { wire_mouse_hover } from "./js/analysis/hover";
 import { wire_mouse_click } from "./js/analysis/click";
-import { load_taz_source } from "./js/analysis/api";
+import { load_taz_source, load_graph } from "./js/analysis/api";
 import { make_spinner } from "./js/common/spinner";
 
 const spinner = make_spinner();
@@ -35,30 +33,43 @@ const get_query_params = () => {
   }
 };
 
-map.on("load", async function () {
-  let params = get_query_params();
-  console.log(params);
+let params = get_query_params();
+let SELECTED_NAME = decodeURI(params.zone_name);
 
-  let nice_name = decodeURI(params.zone_name);
+async function setup_map(map) {
+  return map.on("load", async function () {
+    document.getElementById("zone-name").innerText = SELECTED_NAME;
 
-  document.getElementById("zone-name").innerText = nice_name;
+    for (const src in data_sources) map.addSource(src, data_sources[src]);
 
-  for (const src in data_sources) map.addSource(src, data_sources[src]);
+    for (const lyr in map_layers) map.addLayer(map_layers[lyr]);
 
-  for (const lyr in map_layers) map.addLayer(map_layers[lyr]);
+    wire_mouse_hover(map);
 
-  wire_mouse_hover(map);
+    wire_mouse_click(map);
 
-  wire_mouse_click(map);
+    map.setFilter("zones", ["==", "zone_name", decodeURI(params.zone_name)]);
+    map.setFilter("zones-fill", [
+      "==",
+      "zone_name",
+      decodeURI(params.zone_name),
+    ]);
 
-  map.setFilter("zones", ["==", "zone_name", decodeURI(params.zone_name)]);
-  map.setFilter("zones-fill", ["==", "zone_name", decodeURI(params.zone_name)]);
+    load_taz_source(map, SELECTED_NAME);
 
-  load_taz_source(map, nice_name);
+    map.resize();
+  });
 
-  map.resize();
-});
+  return true;
+}
 
 map.on("idle", () => {
   spinner.stop();
 });
+
+async function setup() {
+  let x = await setup_map(map); //.then(load_graph(SELECTED_NAME));
+  load_graph(SELECTED_NAME);
+}
+
+setup();
