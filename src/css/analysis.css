@@ -1,2 +1,31 @@
+#graph {
+  position: absolute;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  bottom: 10px;
+  right: 10px;
+  z-index: 4;
+  display: none;
+  width: 400px;
+}
+
+#selectors {
+  display: flex;
+}
+
+#left {
+  width: 30%;
+  text-align: right;
+  line-height: 28px;
+}
+#right {
+  width: 70%;
+}
+
+select {
+  margin-left: 5px;
+  height: 26px;
+  margin-bottom: 2px;
+}
+
 @media only screen and (max-width: 600px) {
 }
