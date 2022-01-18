@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
@@ -44,6 +45,53 @@
           </div>
         </div>
       </div>
+
+      <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+    </div>
+
+    <div id="graph" class="box-overlay">
+      <h2>Demographic Segmentation</h2>
+      <hr />
+      <div id="selectors">
+        <div id="left">
+          <label for="triptype">Trip type: </label> <br />
+          <label for="metric">Summary metric: </label> <br />
+          <label for="tripdir">Trip direction: </label> <br />
+          <label for="demo">Demographic profile:</label>
+        </div>
+        <div id="right">
+          <select name="triptype" id="triptype">
+            <option value="rail">Regional Rail trips only</option>
+            <option value="all">All trips, any mode</option>
+          </select>
+
+          <select name="metric" id="metric">
+            <option value="trips">Total trips</option>
+            <option value="fare">Average fare paid</option>
+            <option value="traveltime">Average travel time</option>
+          </select>
+
+          <select name="tripdir" id="tripdir">
+            <option value="home-to-dest">Show flows into selected zone</option>
+            <option value="dest-to-home">
+              Show flows away from selected zone
+            </option>
+          </select>
+
+          <br />
+
+          <select name="demo" id="demo">
+            <option value="english">% who don't speak English at home</option>
+            <option value="income">Income</option>
+          </select>
+
+          <br />
+        </div>
+      </div>
+
+      <hr />
+
+      <canvas id="myChart" width="400" height="400"> </canvas>
     </div>
   </body>
 </html>
