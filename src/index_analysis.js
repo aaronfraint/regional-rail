@@ -37,7 +37,7 @@ let params = get_query_params();
 let SELECTED_NAME = decodeURI(params.zone_name);
 
 async function setup_map(map) {
-  return map.on("load", async function () {
+  map.on("load", async function () {
     document.getElementById("zone-name").innerText = SELECTED_NAME;
 
     for (const src in data_sources) map.addSource(src, data_sources[src]);
@@ -59,8 +59,6 @@ async function setup_map(map) {
 
     map.resize();
   });
-
-  return true;
 }
 
 map.on("idle", () => {
@@ -68,7 +66,7 @@ map.on("idle", () => {
 });
 
 async function setup() {
-  let x = await setup_map(map); //.then(load_graph(SELECTED_NAME));
+  await setup_map(map);
   load_graph(SELECTED_NAME);
 }
 
