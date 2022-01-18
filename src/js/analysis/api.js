@@ -39,15 +39,9 @@ let load_graph = async (nice_name) => {
       data.forEach((el) => {
         let data_bucket = el.bucket_pct_non_english;
 
-        if (!Object.keys(hardcode_labels).includes(data_bucket)) {
-          console.log("MISSING!", data_bucket);
-        }
-
         data_labels.push(hardcode_labels[data_bucket]);
         data_values.push(el.trip_sum);
       });
-
-      console.log(data_labels);
 
       const myChart = new Chart(ctx, {
         type: "bar",
