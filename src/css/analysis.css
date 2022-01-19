@@ -8,23 +8,22 @@
   width: 400px;
 }
 
-#selectors {
+.selectors {
   display: flex;
+  line-height: 28px;
+  height: 28px;
 }
 
-#left {
+.left {
   width: 30%;
   text-align: right;
-  line-height: 28px;
 }
-#right {
+.right {
   width: 70%;
 }
 
 select {
   margin-left: 5px;
-  height: 26px;
-  margin-bottom: 2px;
 }
 
 @media only screen and (max-width: 600px) {

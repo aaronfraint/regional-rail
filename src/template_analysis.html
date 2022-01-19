@@ -52,40 +52,56 @@
     <div id="graph" class="box-overlay">
       <h2>Demographic Segmentation</h2>
       <hr />
-      <div id="selectors">
-        <div id="left">
-          <label for="triptype">Trip type: </label> <br />
-          <label for="metric">Summary metric: </label> <br />
-          <label for="tripdir">Trip direction: </label> <br />
-          <label for="demo">Demographic profile:</label>
+      <p style="font-style: italic; font-size: 14px; color: red">
+        Note! These dropdown selectors are currently placeholders, and will
+        eventually toggle what's shown within the map and graph.
+      </p>
+      <div class="selectors">
+        <div class="left">
+          <label for="triptype">Trip type: </label>
         </div>
-        <div id="right">
+        <div class="right">
           <select name="triptype" id="triptype">
             <option value="rail">Regional Rail trips only</option>
             <option value="all">All trips, any mode</option>
           </select>
-
+        </div>
+      </div>
+      <div class="selectors">
+        <div class="left">
+          <label for="metric">Summary metric: </label>
+        </div>
+        <div class="right">
           <select name="metric" id="metric">
             <option value="trips">Total trips</option>
             <option value="fare">Average fare paid</option>
             <option value="traveltime">Average travel time</option>
           </select>
-
+        </div>
+      </div>
+      <div class="selectors">
+        <div class="left">
+          <label for="tripdir">Trip direction: </label>
+        </div>
+        <div class="right">
           <select name="tripdir" id="tripdir">
             <option value="home-to-dest">Show flows into selected zone</option>
             <option value="dest-to-home">
               Show flows away from selected zone
             </option>
           </select>
+        </div>
+      </div>
 
-          <br />
-
+      <div class="selectors">
+        <div class="left">
+          <label for="demo">Demographic profile:</label>
+        </div>
+        <div class="right">
           <select name="demo" id="demo">
             <option value="english">% who don't speak English at home</option>
             <option value="income">Income</option>
           </select>
-
-          <br />
         </div>
       </div>
 
